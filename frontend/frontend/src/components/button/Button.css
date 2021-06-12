@@ -1,0 +1,40 @@
+/* :root{
+    --primary:hotpink;
+} */
+
+.btn{
+    justify-content: flex-end;
+    border: none;
+    color: ivory;
+    height: 40px;
+    width: 90px;
+    border-radius: 8px;
+    text-align: center;
+    background-color:hotpink;
+    /* padding: 20px; */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+.btn:hover{
+    background-color: rgb(236, 135, 186);
+}
+
+.btn--medium{
+    font-size: 15px;
+    height: 40px;
+    width: 80px;
+}
+
+.btn--large{
+    /* margin-top: 20px; */
+    width: 200px;
+    height: 50px;
+    font-size: 17px;
+
+}
+
+

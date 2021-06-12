@@ -1,0 +1,174 @@
+.navbar-items{
+    background-color:white;
+    height: 80px;
+    display: flex;
+    /* justify-content: start; */
+    align-items: center;
+    color: rgb(100, 99, 99);
+    font-weight: 600;
+    font-size: 15px;
+    width: 100%;
+    margin-right: 10vw;
+}
+
+.logo{
+    height: 20px;
+    /* justify-self: start; */
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+.navmenu{
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+    list-style: none;
+    margin-left: 20px;
+    width: 40%;
+    font-weight: 600;
+}
+
+/* .nav-link{   */
+a{
+    /* color: black;     */
+    text-decoration: none;
+}
+
+
+.nav-link:visited, .nav-link:link{
+    text-decoration: none;
+    color: rgb(100, 99, 99);
+    font-size: 15px;
+    font-weight: 400px;
+}
+
+.nav-link:hover{
+    color: hotpink;
+}
+
+.search-sign-items{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 40%;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 10px;
+    /* padding: 10px; */
+}
+
+#signin{
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+.fas{
+    color: rgb(100, 99, 99);
+    opacity:0.7 ;
+}
+.spacekill{
+    width: 200px;
+    justify-content: end;
+}
+
+.menu-icon{
+    display: none;
+}
+
+.nav-link-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 920px){
+    .navbar-items{
+        position: relative;
+    }
+
+    .navmenu{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        font-size: 20px;
+        align-items: left;
+        justify-content:start;
+        top: 80px;
+        left: -100%; 
+        opacity: 1;
+
+    }
+    .navmenu.active{
+        left: 0;
+        opacity: 1;
+        z-index: 1;
+    }
+    li{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+        
+    }
+
+    .nav-link{  
+        text-align: center;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-link:hover{  
+        color: hotpink;
+        border-radius: 0;
+    }
+
+    .logo{
+        position: absolute;
+        top: 30px;
+        left: 0;
+        height: 20px;
+        margin-left: 38%;
+        /* margin-left: 20px; */
+        cursor: pointer;
+      }
+
+      .menu-icon{
+          display: block;
+          position: absolute;
+          justify-content: start;
+          text-align: center;
+          top:25px ;
+          left: 15%;
+          transform: translate(-100%);
+          font-size: 1.8rem;
+          cursor: pointer;
+      }
+
+      .button, .fa-search{
+          display: none;
+      }
+      #signin{
+          cursor: pointer;
+      }
+      
+      .nav-link-mobile{
+          display: block;
+          text-align: center;
+          padding-top: 2%;
+          margin: auto;
+          border-radius: 8px;
+          background-color: hotpink;
+          width: 40%;
+          height: 5vh;
+          color: ivory;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 600;
+
+      }
+      .nav-link-mobile:hover{
+        background-color: rgb(236, 135, 186);
+    }
+}   

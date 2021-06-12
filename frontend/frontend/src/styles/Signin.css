@@ -1,0 +1,117 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    /* justify-content:space-between;
+    height: 700px;; */
+}
+
+#image{
+    /* width: 40%; */
+    margin: 0%;
+    max-width: 35%;
+    height: 800px;
+    float: left;
+    /* display: flex;   
+    align-items: flex-start;
+    justify-content: left; */
+    background-color: rgb(244, 244, 244);
+    background-position: bottom center;
+    opacity: .8;
+    /* background-size: cover; */
+    /* object-fit: cover; */
+ }
+
+#not-member{
+    /* position:absolute; */
+    color: rgb(42, 23, 211);
+    margin-left: 5px;
+    display: inline;
+    
+}
+
+.form-container{
+    /* position: relative; */
+    width: 60%;
+    background-color:white;
+    align-items: center;
+    text-align: left;
+    margin-top: 40%;
+    margin-left: 60%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.google-button{
+    background-color: #4285f4;
+    border: #4285f4;
+    height: 40px;
+    width: 300px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 24px;
+    font-weight:bolder;  
+
+}
+a:visited, a:link{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.or{
+    /* text-align: center; */
+    /* margin-left: 35px; */
+    width: 300px;
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.username-password{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-family: 600;
+    padding-bottom: 20px;
+}
+.username{
+    background-color: rgb(243, 242, 242);
+    border: rgb(223, 219, 219);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 400px;
+    border-radius: 8px;
+    font-size: 16px;
+
+}
+
+.signin-click{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgb(231, 56, 143);
+    color: ivory;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border-color: rgb(231, 56, 143);
+    border-style: solid;
+    font-weight:bolder;
+}
+
+input:hover{
+    background-color: white;
+    border: 1px solid rgb(223, 219, 219);
+    box-shadow: 1px 1px 1px 1px rgb(236, 188, 212);
+    transition: .1s ease-in-out;
+}
+
+input{
+    outline-color: rgb(240, 148, 194);
+
+}
