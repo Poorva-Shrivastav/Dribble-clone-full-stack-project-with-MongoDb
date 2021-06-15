@@ -47,6 +47,9 @@
     width: 300px;
     border-radius: 4px;
     text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight:600;
 }
 .google-button:hover{
     background-color: #4285f4;

@@ -5,7 +5,7 @@ import logo from '../../images/logo.png';
 import './Navbar.css';
 import Button from '../button/Button'
 
-const Navbar = () => {
+const SigninNavbar = () => {
     const [clicked, setClicked] = useState(false);
 
     const clickHandler = (e) => {
@@ -14,15 +14,11 @@ const Navbar = () => {
 
     const history = useHistory();
 
-    const signupHandler = () =>{ 
+    const uploadHandler = () =>{ 
       let path = `/signup`; 
       history.push(path);
     }
 
-    const signinHandler = () =>{ 
-        let path = `/signin`; 
-        history.push(path);
-    }
 
     return(
             <div className="navbar-items">
@@ -45,9 +41,9 @@ const Navbar = () => {
                 <div className='spacekill'></div>
                 <div className="search-sign-items">
                     <a href="https://google.com"><i class="fas fa-search"></i></a>
-                    <label id="signin" onClick={signinHandler}>Sign in</label>
+                    {/* <label id="upload" onClick={uploadHandler}>Sign in</label> */}
                     <div class="button"> 
-                        <Button onClick={signupHandler}>Sign Up</Button>
+                        <Button onClick={uploadHandler}>Upload</Button>
                     </div>
                     
                 </div>
@@ -57,4 +53,4 @@ const Navbar = () => {
     // }
 }
 
-export default Navbar;
+export default SigninNavbar;

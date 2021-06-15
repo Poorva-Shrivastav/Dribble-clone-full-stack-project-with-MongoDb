@@ -1,12 +1,12 @@
 import React, {useEffect, useState } from 'react'
 import {Link} from 'react-router-dom';
-import Navbar from '../components/navbar/Navbar';
-import Banner from '../components/banner/Banner';
+import SigninNavbar from '../components/navbar/SigninNavbar';
+import SigninHomeBanner from '../components/banner/SigninHomeBanner';
 import Grid from '../components/grid/Grid';
 import axios from 'axios';
 
 
-function Home() {
+function SigninHome() {
 
     const [home, setHome] = useState('')
 
@@ -32,8 +32,8 @@ function Home() {
 
     return (
         <div>
-            <Navbar />
-            <Banner />
+            <SigninNavbar />
+            <SigninHomeBanner/>
             <Grid />
             
         </div>
@@ -41,4 +41,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default SigninHome;

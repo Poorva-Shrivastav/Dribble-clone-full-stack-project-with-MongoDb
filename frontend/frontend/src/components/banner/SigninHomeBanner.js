@@ -1,16 +1,9 @@
 import React from 'react';
-import img from '../../images/banner.png';
+import img from '../../images/bannerSignin.jpeg';
 import './Banner.css';
 import Button from '../button/Button';
-import { useHistory } from 'react-router';
 
-function Banner() {
-
-    const history = useHistory();
-    const signupHandler = () =>{ 
-        let path = `/signup`; 
-        history.push(path);
-    }
+function SigninHomeBanner() {
     return (
         <div className="body-image">
         <img id="panel-img" src={img} alt=""/>
@@ -20,10 +13,10 @@ function Banner() {
                 design
                 professionals.</p>
             {/* <div><a className="signup" href="/dribblePage/signUp.html">Sign Up</a></div> */}
-            <Button onClick={signupHandler}>Sign Up</Button>
+            {/* <Button >Sign Up</Button> */}
         </div>
     </div>
     )
 }
 
-export default Banner;
+export default SigninHomeBanner;

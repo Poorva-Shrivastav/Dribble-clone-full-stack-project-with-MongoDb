@@ -3,45 +3,69 @@ import '../styles/Signin.css';
 import img from '../images/signin.jpeg'
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { useHistory } from 'react-router';
+import { GoogleLogin} from 'react-google-login'
 
 function SignIn(props){
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const [submit, setSubmit] = useState(null)
 
     const submitHandler = (e) => {
         e.preventDefault();
-        let request = {
-            username: document.getElementById('username').value,
-            // email: document.getElementById('email').value,
-            password:document.getElementById('password').value
+        let loginRequest = {
+            // username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password:document.getElementById('password')
         }
         
-        axios.post('http://localhost:3000/login', request)
-            .then(res => {
-                alert(res.data.message)
+        axios.post('http://localhost:5000/api/signin', loginRequest)
+            .then(res => { console.log(res.data)
+                console.log(res.data);
+                // alert(res.data.message)
             })
             .catch(err => console.log(err))
+        window.location = '/home'
+    }
+    const googleSuccess = async (res) => {
+        console.log(res);
     }
 
+    const googleFailure = (error) => {
+        console.log(error);
+        console.log("Google Signin was unsuccessful. Try Again later");
+    }
+    
+    const history = useHistory();
+    const signupHandler = () =>{ 
+        let path = `/signup`; 
+        history.push(path);
+    }
     return(
         <div className="container">
             <img id="image" src={img} alt="image"/>
-        <form onSubmit={submitHandler}>
+        <form method="POST" onSubmit={submitHandler}>
             <div className="form-container">
         
-            <p>Not a member?<a id="member" href="./login.html"> Sign in</a></p>
+            <p>Not a member?<a id="member" onClick={signupHandler}> Sign in</a></p>
             <h1>Sign in to Dribble</h1>
-            <button className="google-button"><a className="google-login-button"
-                            href="https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Sign
-                            up with Google </a></button>
+            <GoogleLogin 
+                    clientId = "1051195399308-qeup3297q34iq6h4b8j026hbn5uh0jji.apps.googleusercontent.com"
+                    render = {(renderProps) => (
+                        <button className="google-button google-login-button" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} variant="contained">Sign up with Google</button>
+                    )}
+                    onSuccess= {googleSuccess}
+                    onFailure={googleFailure}
+                    cookiePolicy = "single_host_origin"
+                    
+                />
             <p className="or">--------Or  check how to do this--------</p>
     
             <div>
-                <label className="username-password" >Username</label>
-                <input className="username" id="username" type="text" value={username} name="username" required id="username"  
-                onChange={(e)=>{setUsername(e.target.value)}}
+                <label className="username-password" >Email</label>
+                <input className="username" id="email" type="text" value={email} name="email" required id="email"  
+                onChange={(e)=>{setEmail(e.target.value)}}
                 />
             </div> 
             <div>

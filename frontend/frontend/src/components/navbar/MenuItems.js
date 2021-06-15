@@ -31,7 +31,7 @@ export const MenuItems = [
 
     {
         title   :   'Sign up',
-        url     :   '#',
+        url     :   'http://localhost:3000/signup',
         link    :   'nav-link-mobile'
     }
 
