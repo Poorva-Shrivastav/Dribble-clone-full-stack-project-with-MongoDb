@@ -4,12 +4,13 @@ const bcrypt = require('bcrypt')
 const signinRouter = express.Router();
 const signuptemplate  = require('../models/signupModel') 
 const jwt = require('jsonwebtoken')
-const bodyParser = require('body-parser');
-import auth from '../middlewares/middleware.js'
+let bodyParser = require('body-parser');
+const auth = require('../middlewares/middleware')
 
 
-router.use(bodyParser.json())
-outer.post('/signin',async(req, res)=>{
+signinRouter.use(bodyParser.json())
+
+signinRouter.post('/signin',async(req, res)=>{
     const {email, password} = req.body;
 
     try{
@@ -24,8 +25,7 @@ outer.post('/signin',async(req, res)=>{
             return res.status(400).json({ message: "Invalid credentials"})
         }
 
-        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, process.env.SERVER_SIDE_SECURITY_KEY, {expiresIn: 60*1000})
-
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, "text", {expiresIn: 60*1000})
         res.status(200).json({  result: existingUser, token })   
     
     } catch(error){
@@ -34,7 +34,7 @@ outer.post('/signin',async(req, res)=>{
     }
 })
 
-
+module.exports = signinRouter;
 
 
 // signinRoutes.post('/signin', 

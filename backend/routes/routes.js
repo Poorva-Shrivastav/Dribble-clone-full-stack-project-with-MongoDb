@@ -45,7 +45,7 @@ router.post('/signup', async (request, response) =>{
 
         const result = await signuptemplate.create({name, username, email, password: hashedPassword})
     
-        const token = jwt.sign({ email: result.email, id: result._id}, process.env.SERVER_SIDE_SECURITY_KEY, {expiresIn: 60*1000})
+        const token = jwt.sign({ email: result.email, id: result._id}, "text", {expiresIn: 60*1000})
 
         response.status(200).json({result, token})
     }catch(error){

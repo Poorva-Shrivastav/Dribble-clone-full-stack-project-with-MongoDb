@@ -1,4 +1,5 @@
-import jwt, { decode } from 'jsonwebtoken';
+const jwt = require('jsonwebtoken')
+const { decode } = require('jsonwebtoken')
 const auth = async (req, res) => {
     try{
         const token = req.headers.authorization.split("")[1]

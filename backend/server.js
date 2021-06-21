@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const routesUrls = require('./routes/routes')
 const cors = require('cors')
+const signinUrls = require('./routes/signinRoutes')
 
 
 const app = express();
@@ -19,5 +20,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(express.json())
 app.use(cors());
 app.use('/api', routesUrls)
+app.use('/api', signinUrls)
 
 app.listen(5000, ()=> (console.log("server is running")))    

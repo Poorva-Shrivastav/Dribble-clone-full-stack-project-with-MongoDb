@@ -5,6 +5,7 @@ import axios from 'axios';
 import image from '../images/signup.jpg'
 import { useHistory } from 'react-router-dom'
 import { GoogleLogin} from 'react-google-login'
+import validator from 'validator';
 
 function Signup(props){
     const {name, username, email, password} = props;
@@ -14,7 +15,7 @@ function Signup(props){
     // })
     
     const history = useHistory();
-
+    
     const [submit, setSubmit] = useState(null)
 
     const submitHandler = (e) => {
@@ -26,12 +27,21 @@ function Signup(props){
             password:document.getElementById('password').value
         }
 
-        axios.post('http://localhost:5000/api/signup', registered)
+        if(props.name.length >= 10){
+            alert("Long Name!");
+        }
+        else if(props.password.length < 6){
+            alert("Password is less than 6 characters");
+        }
+        else{
+            axios.post('http://localhost:5000/api/signup', registered)
             .then(res => { console.log(res.data)
+            window.location = '/home'
                 // alert(res.data.message)
             })
             .catch(err => console.log(err))
-        window.location = '/'
+             
+        }
     }
 
     const googleSuccess = async (res) => {

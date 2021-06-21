@@ -10,24 +10,28 @@ function SignIn(props){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const [submit, setSubmit] = useState(null)
+    const [submit, setSubmit] = useState('')
 
     const submitHandler = (e) => {
         e.preventDefault();
         let loginRequest = {
             // username: document.getElementById('username').value,
             email: document.getElementById('email').value,
-            password:document.getElementById('password')
+            password: document.getElementById('password').value
+            
         }
         
         axios.post('http://localhost:5000/api/signin', loginRequest)
-            .then(res => { console.log(res.data)
-                console.log(res.data);
+            .then(res => { //console.log(res.data)
+                console.log(res.data.name);
                 // alert(res.data.message)
+                window.location = '/home'
             })
             .catch(err => console.log(err))
-        window.location = '/home'
+                
+            // window.location = '/home'
     }
+    
     const googleSuccess = async (res) => {
         console.log(res);
     }
@@ -48,7 +52,7 @@ function SignIn(props){
         <form method="POST" onSubmit={submitHandler}>
             <div className="form-container">
         
-            <p>Not a member?<a id="member" onClick={signupHandler}> Sign in</a></p>
+            <p>Not a member?<a id="member" onClick={signupHandler}> Sign up</a></p>
             <h1>Sign in to Dribble</h1>
             <GoogleLogin 
                     clientId = "1051195399308-qeup3297q34iq6h4b8j026hbn5uh0jji.apps.googleusercontent.com"
@@ -71,7 +75,7 @@ function SignIn(props){
             <div>
             
                 <label className="username-password">Password</label>
-                <input className="username" id="password" type="password" value={password} name="password"  required id="pwd"
+                <input className="username" id="password" type="password" value={password} name="password"  required id="password"
                 onChange={(e)=>{setPassword(e.target.value)}}
                 />
             </div>

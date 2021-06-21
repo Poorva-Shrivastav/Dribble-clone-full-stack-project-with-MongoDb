@@ -41,7 +41,6 @@ const SigninNavbar = () => {
                 <div className='spacekill'></div>
                 <div className="search-sign-items">
                     <a href="https://google.com"><i class="fas fa-search"></i></a>
-                    {/* <label id="upload" onClick={uploadHandler}>Sign in</label> */}
                     <div class="button"> 
                         <Button onClick={uploadHandler}>Upload</Button>
                     </div>
