@@ -22,4 +22,8 @@ app.use(cors());
 app.use('/api', routesUrls)
 app.use('/api', signinUrls)
 
-app.listen(5000, ()=> (console.log("server is running")))    
+// app.listen(5000, ()=> (console.log("server is running")))    
+
+app.listen(process.env.PORT || 5000, function(){
+    console.log("Express server listening on port %d in %s mode");
+  });
